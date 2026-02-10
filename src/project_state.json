@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Adjust the Artist Leaderboard UI background color away from the current dark/coffee-toned mandala aesthetic to a light blue background.",
+  "architectural_notes": [
+    "Visual direction change: shift from neon-accent dark glassmorphism to Indian-inspired mandala pattern + coffee minimal minimalism while retaining existing layout/data elements.",
+    "Background color direction change requested: switch leaderboard background to light blue (may conflict with existing dark-mode/coffee-toned mandala styling)."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-dedicated-artist-leaderboard-screen-in-the-react-app-that-renders-a-leaderboard-list-with-glassmorphism-row-styling-on-a-sleek-dark-mode-background",
+      "title": "Create a dedicated \"Artist Leaderboard\" screen in the React app that renders a leaderboard list with glassmorphism row styling on a sleek dark-mode background.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-each-leaderboard-row-must-display-1-a-bold-serial-number-2-an-artist-avatar-3-the-artist-name-and-4-a-reach-score-column-with-a-numeric-value",
+      "title": "Each leaderboard row must display: (1) a bold serial number, (2) an artist avatar, (3) the artist name, and (4) a \"Reach Score\" column with a numeric value.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-ranking-shift-visualization-per-row-that-compares-current-data-to-previous-data-and-displays-a-vibrant-green-up-arrow-for-positive-movement-and-a-red-down-arrow-for-negative-movement-and-a-neutral-state-for-no-change",
+      "title": "Add a ranking-shift visualization per row that compares current data to previous data and displays a vibrant green up-arrow for positive movement and a red down-arrow for negative movement (and a neutral state for no change).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-modular-component-structure-for-the-leaderboard-e-g-separate-components-for-the-leaderboard-container-header-columns-and-individual-artist-row-to-make-the-layout-easy-to-extend",
+      "title": "Implement a modular component structure for the leaderboard (e.g., separate components for the leaderboard container, header/columns, and individual artist row) to make the layout easy to extend.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-vibrant-indie-neon-accented-hype-indicator-for-top-trending-artists-that-stands-out-from-other-rows-while-still-fitting-the-dark-glassmorphism-aesthetic",
+      "title": "Add a vibrant indie, neon-accented \"Hype\" indicator for top-trending artists that stands out from other rows while still fitting the dark glassmorphism aesthetic.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-consistent-visual-theme-across-the-leaderboard-color-tokens-typography-scale-spacing-borders-and-hover-focus-states-that-matches-a-sleek-dark-mode-neon-accent-glassmorphism-style-avoid-default-blue-purple-accents-unless-explicitly-needed",
+      "title": "Apply a consistent visual theme across the leaderboard (color tokens, typography scale, spacing, borders, and hover/focus states) that matches a sleek dark-mode + neon-accent glassmorphism style (avoid default blue/purple accents unless explicitly needed).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-artist-leaderboard-visual-theme-from-neon-cyber-glassmorphism-to-an-indian-inspired-design-that-uses-mandala-pattern-motifs-and-a-coffee-toned-minimalistic-aesthetic-while-keeping-all-existing-leaderboard-information-and-layout-structure-intact",
+      "title": "Update the Artist Leaderboard visual theme from neon cyber/glassmorphism to an Indian-inspired design that uses mandala pattern motifs and a coffee-toned minimalistic aesthetic, while keeping all existing leaderboard information and layout structure intact.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-introduce-a-mandala-pattern-as-a-subtle-background-layer-for-the-artist-leaderboard-page-and-or-cards-e-g-faint-low-contrast-tiled-or-centered-implemented-via-a-generated-static-image-asset-and-applied-in-a-way-that-preserves-readability-in-dark-mode",
+      "title": "Introduce a mandala pattern as a subtle background layer for the Artist Leaderboard page and/or cards (e.g., faint, low-contrast, tiled or centered), implemented via a generated static image asset and applied in a way that preserves readability in dark mode.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-refactor-existing-leaderboard-component-styling-page-header-row-rank-badge-avatar-border-fallback-hype-badge-glassmorphism-card-styles-and-shadows-to-match-the-coffee-minimal-palette-and-mandala-inspired-aesthetic-using-the-existing-tailwind-css-variable-token-approach",
+      "title": "Refactor existing leaderboard component styling (page header, row rank badge, avatar border/fallback, hype badge, glassmorphism card styles, and shadows) to match the coffee minimal palette and mandala-inspired aesthetic, using the existing Tailwind/CSS variable token approach.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-artist-leaderboard-page-background-to-be-light-blue-instead-of-the-current-dark-coffee-toned-background",
+      "title": "Update the Artist Leaderboard page background to be light blue instead of the current dark/coffee-toned background.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-artist-leaderboard-page-remains-readable-and-visually-consistent-after-switching-the-background-to-light-blue-including-text-colors-card-contrast-and-the-mandala-paper-texture-overlay-layers",
+      "title": "Ensure the Artist Leaderboard page remains readable and visually consistent after switching the background to light blue (including text colors, card contrast, and the mandala/paper texture overlay layers).",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a dark-mode 'Artist Leaderboard' with glassmorphism rows including serial number, artist avatar/name, Reach Score column, up/down ranking shift arrows, modular layout, and neon 'Hype' indicator for top-trending artists.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Update the leaderboard visual theme to an Indian-inspired design with mandala patterns and a coffee-toned minimalistic aesthetic.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Change the Artist Leaderboard page background to light blue (replacing the prior light pink request).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Dark-mode Artist Leaderboard with glassmorphism rows, reach score shifts, and neon Hype indicator",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

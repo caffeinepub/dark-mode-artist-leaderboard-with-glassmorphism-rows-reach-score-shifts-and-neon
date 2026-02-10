@@ -1,2 +1,3 @@
-# dark-mode-artist-leaderboard-with-glassmorphism-rows-reach-score-shifts-and-neon
-Exported from Caffeine project: Dark-mode Artist Leaderboard with glassmorphism rows, reach score shifts, and neon Hype indicator
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

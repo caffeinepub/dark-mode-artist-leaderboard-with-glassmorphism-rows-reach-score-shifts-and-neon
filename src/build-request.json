@@ -1,0 +1,56 @@
+{
+  "kind": "build_request",
+  "title": "Change Artist Leaderboard page background to light blue",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "text": "Update the Artist Leaderboard page background to be light blue instead of the current dark/coffee-toned background.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "make the background light blue"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When viewing the Artist Leaderboard page, the primary page background renders as a light blue color.",
+        "The background color change is applied via the existing theme/CSS variable approach (so it affects the `mandala-bg` container and the `body` background consistently)."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Ensure the Artist Leaderboard page remains readable and visually consistent after switching the background to light blue (including text colors, card contrast, and the mandala/paper texture overlay layers).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "make the background light blue"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All page text (header, subheader, footer, and leaderboard row content) maintains sufficient contrast against the new light blue background.",
+        "The mandala pattern and paper texture overlays remain subtle and do not reduce readability on the light blue background.",
+        "Glassmorphism cards/rows remain visually separated from the light blue background (no washed-out blending)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (read-only).",
+    "Do not modify frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, or frontend/src/main.tsx (immutable paths).",
+    "Backend must remain single-actor; no backend changes are required for this request."
+  ],
+  "nonGoals": [
+    "Do not change leaderboard data, ranking logic, or add new leaderboard features.",
+    "Do not add or change authentication behavior.",
+    "Do not introduce new pages or routing changes."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

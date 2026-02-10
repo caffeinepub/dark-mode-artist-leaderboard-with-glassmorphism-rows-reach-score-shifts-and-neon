@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        /* Light blue background theme */
+        --background: 0.92 0.04 230;
+        --foreground: 0.25 0.03 240;
+        --card: 0.96 0.03 230;
+        --card-foreground: 0.25 0.03 240;
+        --popover: 0.96 0.03 230;
+        --popover-foreground: 0.25 0.03 240;
+        --primary: 0.45 0.10 240;
+        --primary-foreground: 0.98 0.02 230;
+        --secondary: 0.88 0.03 230;
+        --secondary-foreground: 0.30 0.03 240;
+        --muted: 0.90 0.03 230;
+        --muted-foreground: 0.50 0.04 240;
+        --accent: 0.65 0.12 220;
+        --accent-foreground: 0.98 0.02 230;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.80 0.04 230;
+        --input: 0.85 0.03 230;
+        --ring: 0.65 0.10 240;
+        --chart-1: 0.646 0.222 41.116;
+        --chart-2: 0.6 0.118 184.704;
+        --chart-3: 0.398 0.07 227.392;
+        --chart-4: 0.828 0.189 84.429;
+        --chart-5: 0.769 0.188 70.08;
+        --sidebar: 0.96 0.03 230;
+        --sidebar-foreground: 0.25 0.03 240;
+        --sidebar-primary: 0.45 0.10 240;
+        --sidebar-primary-foreground: 0.98 0.02 230;
+        --sidebar-accent: 0.88 0.03 230;
+        --sidebar-accent-foreground: 0.30 0.03 240;
+        --sidebar-border: 0.80 0.04 230;
+        --sidebar-ring: 0.65 0.10 240;
+        
+        /* Accent colors adjusted for light blue theme */
+        --coffee-dark: 0.30 0.04 240;
+        --coffee-medium: 0.50 0.06 235;
+        --coffee-light: 0.70 0.05 230;
+        --saffron: 0.65 0.15 50;
+        --copper: 0.55 0.12 35;
+    }
+
+    .dark {
+        --background: 0.18 0.02 35;
+        --foreground: 0.95 0.01 45;
+        --card: 0.22 0.02 35;
+        --card-foreground: 0.95 0.01 45;
+        --popover: 0.20 0.02 35;
+        --popover-foreground: 0.95 0.01 45;
+        --primary: 0.75 0.08 45;
+        --primary-foreground: 0.20 0.02 35;
+        --secondary: 0.28 0.02 35;
+        --secondary-foreground: 0.95 0.01 45;
+        --muted: 0.30 0.02 35;
+        --muted-foreground: 0.65 0.03 40;
+        --accent: 0.40 0.04 35;
+        --accent-foreground: 0.95 0.01 45;
+        --destructive: 0.60 0.20 25;
+        --destructive-foreground: 0.95 0.01 45;
+        --border: 0.35 0.02 35;
+        --input: 0.32 0.02 35;
+        --ring: 0.55 0.06 40;
+        --chart-1: 0.488 0.243 264.376;
+        --chart-2: 0.696 0.17 162.48;
+        --chart-3: 0.769 0.188 70.08;
+        --chart-4: 0.627 0.265 303.9;
+        --chart-5: 0.645 0.246 16.439;
+        --sidebar: 0.22 0.02 35;
+        --sidebar-foreground: 0.95 0.01 45;
+        --sidebar-primary: 0.70 0.15 50;
+        --sidebar-primary-foreground: 0.20 0.02 35;
+        --sidebar-accent: 0.28 0.02 35;
+        --sidebar-accent-foreground: 0.95 0.01 45;
+        --sidebar-border: 0.35 0.02 35;
+        --sidebar-ring: 0.55 0.06 40;
+        
+        /* Coffee + Saffron accent colors for dark mode */
+        --coffee-dark: 0.25 0.03 35;
+        --coffee-medium: 0.45 0.05 40;
+        --coffee-light: 0.65 0.04 45;
+        --saffron: 0.75 0.18 50;
+        --copper: 0.65 0.14 35;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        overflow-x: hidden;
+    }
+}
+
+@layer components {
+    .mandala-bg {
+        position: relative;
+        background-color: oklch(var(--background));
+    }
+    
+    .mandala-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/assets/generated/mandala-pattern-bg.dim_2048x2048.png');
+        background-size: 512px 512px;
+        background-repeat: repeat;
+        opacity: 0.05;
+        pointer-events: none;
+    }
+    
+    .mandala-bg::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/assets/generated/coffee-paper-texture.dim_2048x2048.png');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.02;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+    }
+    
+    .glassmorphism-card {
+        background: linear-gradient(
+            135deg,
+            oklch(var(--card) / 0.8) 0%,
+            oklch(var(--card) / 0.6) 100%
+        );
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid oklch(var(--border) / 0.4);
+        box-shadow: 
+            0 4px 16px 0 oklch(0.50 0.05 230 / 0.12),
+            inset 0 1px 0 0 oklch(1 0 0 / 0.15);
+    }
+    
+    .glassmorphism-card:hover {
+        border-color: oklch(var(--saffron) / 0.4);
+        box-shadow: 
+            0 8px 24px 0 oklch(0.50 0.05 230 / 0.18),
+            0 0 0 1px oklch(var(--saffron) / 0.15),
+            inset 0 1px 0 0 oklch(1 0 0 / 0.2);
+    }
+}
+
+@layer utilities {
+    .text-coffee-dark {
+        color: oklch(var(--coffee-dark));
+    }
+    
+    .text-coffee-medium {
+        color: oklch(var(--coffee-medium));
+    }
+    
+    .text-coffee-light {
+        color: oklch(var(--coffee-light));
+    }
+    
+    .text-saffron {
+        color: oklch(var(--saffron));
+    }
+    
+    .text-copper {
+        color: oklch(var(--copper));
+    }
+    
+    .bg-coffee-dark {
+        background-color: oklch(var(--coffee-dark));
+    }
+    
+    .bg-coffee-medium {
+        background-color: oklch(var(--coffee-medium));
+    }
+    
+    .bg-saffron {
+        background-color: oklch(var(--saffron));
+    }
+    
+    .bg-copper {
+        background-color: oklch(var(--copper));
+    }
+    
+    .border-coffee-medium {
+        border-color: oklch(var(--coffee-medium));
+    }
+    
+    .border-saffron {
+        border-color: oklch(var(--saffron));
+    }
+    
+    .border-copper {
+        border-color: oklch(var(--copper));
+    }
+    
+    .shadow-coffee {
+        box-shadow: 
+            0 4px 16px oklch(0.40 0.05 230 / 0.15),
+            0 2px 8px oklch(0.50 0.05 230 / 0.10);
+    }
+    
+    .shadow-saffron-glow {
+        box-shadow: 
+            0 0 12px oklch(var(--saffron) / 0.25),
+            0 0 24px oklch(var(--copper) / 0.15);
+    }
+    
+    .animate-pulse-subtle {
+        animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    @keyframes pulse-subtle {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.85;
+        }
+    }
+}

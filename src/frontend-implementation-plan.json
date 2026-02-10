@@ -1,0 +1,53 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Artist Leaderboard light-blue background theme update",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "summary": "Switch the Artist Leaderboard page background from dark/coffee-toned to a light blue using the existing CSS variable theme approach so body and mandala-bg match.",
+      "acceptanceCriteria": [
+        "When viewing the Artist Leaderboard page, the primary page background renders as a light blue color.",
+        "The background color change is applied via the existing theme/CSS variable approach (so it affects the `mandala-bg` container and the `body` background consistently)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Stop forcing the app into dark mode via a persistent `dark` class so the updated light theme variables can drive the page background consistently (including the body background)."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update the existing theme CSS variables (notably `--background`, and any closely coupled surface tokens like `--card`/`--popover`) to a light-blue base so both `body` (bg-background) and `.mandala-bg` (uses `--background`) render with the new light blue background."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Adjust styling to preserve readability and visual separation on the new light-blue background, keeping overlays subtle and cards/rows contrasted.",
+      "acceptanceCriteria": [
+        "All page text (header, subheader, footer, and leaderboard row content) maintains sufficient contrast against the new light blue background.",
+        "The mandala pattern and paper texture overlays remain subtle and do not reduce readability on the light blue background.",
+        "Glassmorphism cards/rows remain visually separated from the light blue background (no washed-out blending)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Tune contrast-related theme variables (e.g., `--foreground`, `--muted-foreground`, `--border`, `--card`) for the light-blue background, and adjust `.mandala-bg::before` / `.mandala-bg::after` overlay opacity and blending so the mandala and paper textures remain subtle and do not harm readability; keep the approach within the existing CSS variable + utility structure."
+        },
+        {
+          "path": "frontend/src/pages/ArtistLeaderboardPage.tsx",
+          "operation": "modify",
+          "description": "Review and adjust page-level text and border utility classes (e.g., header/footer text colors and divider border opacity) as needed to ensure consistent contrast on the new light-blue background without introducing new routes or altering leaderboard behavior."
+        },
+        {
+          "path": "frontend/src/components/leaderboard/LeaderboardHeader.tsx",
+          "operation": "modify",
+          "description": "Adjust header label styling (including any dark-mode-specific classes that may no longer apply) so column labels remain readable and visually consistent with the new light-blue background."
+        }
+      ]
+    }
+  ]
+}
