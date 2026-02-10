@@ -4,7 +4,7 @@ export const artistLeaderboardData: Artist[] = [
   {
     id: '1',
     rank: 1,
-    name: 'Luna Starlight',
+    name: 'Atif Aslam',
     avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Luna',
     reachScore: 98750,
     previousReachScore: 95200,
@@ -13,7 +13,7 @@ export const artistLeaderboardData: Artist[] = [
   {
     id: '2',
     rank: 2,
-    name: 'Neon Dreams',
+    name: 'Arijit Singh',
     avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Neon',
     reachScore: 87340,
     previousReachScore: 89100,

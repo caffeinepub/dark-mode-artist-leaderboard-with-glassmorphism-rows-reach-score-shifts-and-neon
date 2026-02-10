@@ -1,56 +1,47 @@
 {
   "kind": "build_request",
-  "title": "Change Artist Leaderboard page background to light blue",
+  "title": "Update first two leaderboard artist names",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-10",
-      "text": "Update the Artist Leaderboard page background to be light blue instead of the current dark/coffee-toned background.",
+      "id": "REQ-12",
+      "text": "Update the sample artist leaderboard data so that the first leaderboard entry (rank 1) has the artist name \"Atif Aslam\" and the second leaderboard entry (rank 2) has the artist name \"Arijit Singh\".",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "make the background light blue"
+          "change the names to Atif Aslam in the first one , Arijit singh in the second"
         ]
       },
       "acceptanceCriteria": [
-        "When viewing the Artist Leaderboard page, the primary page background renders as a light blue color.",
-        "The background color change is applied via the existing theme/CSS variable approach (so it affects the `mandala-bg` container and the `body` background consistently)."
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "text": "Ensure the Artist Leaderboard page remains readable and visually consistent after switching the background to light blue (including text colors, card contrast, and the mandala/paper texture overlay layers).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-6"
-        ],
-        "quotes": [
-          "make the background light blue"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All page text (header, subheader, footer, and leaderboard row content) maintains sufficient contrast against the new light blue background.",
-        "The mandala pattern and paper texture overlays remain subtle and do not reduce readability on the light blue background.",
-        "Glassmorphism cards/rows remain visually separated from the light blue background (no washed-out blending)."
+        "In frontend/src/data/artistLeaderboardSample.ts, the entry with rank: 1 has name: \"Atif Aslam\".",
+        "In frontend/src/data/artistLeaderboardSample.ts, the entry with rank: 2 has name: \"Arijit Singh\" (capitalization exactly as shown).",
+        "The Artist Leaderboard page renders these updated names in the first two rows without changing any other fields (id, rank, avatar URL, reachScore, previousReachScore, isTopTrending) for those entries."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (read-only).",
-    "Do not modify frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, or frontend/src/main.tsx (immutable paths).",
-    "Backend must remain single-actor; no backend changes are required for this request."
+    "Do not modify any files under frontend/src/components/ui or any paths listed in frontend.immutablePaths.",
+    "Keep the existing leaderboard data structure (Artist interface fields) unchanged."
   ],
   "nonGoals": [
-    "Do not change leaderboard data, ranking logic, or add new leaderboard features.",
-    "Do not add or change authentication behavior.",
-    "Do not introduce new pages or routing changes."
+    "Do not change the leaderboard layout, styling, theme, sorting, or any other artist entries beyond the first two names.",
+    "Do not add backend storage or persistence for leaderboard data."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

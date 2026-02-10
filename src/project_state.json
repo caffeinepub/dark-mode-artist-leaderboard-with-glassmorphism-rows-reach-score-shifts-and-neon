@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 7,
+  "projectStateVersion": 9,
   "summary": "Adjust the Artist Leaderboard UI background color away from the current dark/coffee-toned mandala aesthetic to a light blue background.",
   "architectural_notes": [
     "Visual direction change: shift from neon-accent dark glassmorphism to Indian-inspired mandala pattern + coffee minimal minimalism while retaining existing layout/data elements.",
@@ -96,6 +96,14 @@
         "REQ-11"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-sample-artist-leaderboard-data-so-that-the-first-leaderboard-entry-rank-1-has-the-artist-name-atif-aslam-and-the-second-leaderboard-entry-rank-2-has-the-artist-name-arijit-singh",
+      "title": "Update the sample artist leaderboard data so that the first leaderboard entry (rank 1) has the artist name \"Atif Aslam\" and the second leaderboard entry (rank 2) has the artist name \"Arijit Singh\".",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -114,6 +122,12 @@
     {
       "id": "AR-3",
       "summary": "Change the Artist Leaderboard page background to light blue (replacing the prior light pink request).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Update the first two leaderboard entries to use the artist names \"Atif Aslam\" (1st) and \"Arijit Singh\" (2nd).",
       "reqIds": [],
       "status": "pending"
     }

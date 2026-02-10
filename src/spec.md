@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Update the Artist Leaderboard page background to a light blue while keeping the page readable and visually consistent.
+**Goal:** Update the first two sample artist names shown on the Artist Leaderboard.
 
 **Planned changes:**
-- Change the Artist Leaderboard page background from the current dark/coffee-toned background to a light blue color using the existing theme/CSS variable approach so both the `mandala-bg` container and `body` background are consistent.
-- Adjust foreground styles as needed to maintain readability and contrast (text, glassmorphism cards/rows, and overlay layers) on the new light blue background.
-- Ensure the mandala pattern and paper texture overlays remain subtle and do not reduce readability on the light blue background.
+- Update `frontend/src/data/artistLeaderboardSample.ts` so the entry with `rank: 1` has `name: "Atif Aslam"`.
+- Update `frontend/src/data/artistLeaderboardSample.ts` so the entry with `rank: 2` has `name: "Arijit Singh"`.
 
-**User-visible outcome:** The Artist Leaderboard page displays with a light blue background, with clear readable text and distinct leaderboard cards/rows while preserving subtle mandala/paper texture overlays.
+**User-visible outcome:** The Artist Leaderboard page displays “Atif Aslam” and “Arijit Singh” as the first two ranked artists, with all other leaderboard fields and entries unchanged.

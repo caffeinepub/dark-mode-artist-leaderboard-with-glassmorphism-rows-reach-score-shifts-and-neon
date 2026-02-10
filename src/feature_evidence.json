@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-artist-leaderboard-page-background-to-be-light-blue-instead-of-the-current-dark-coffee-toned-background",
-      "featureTitle": "Update the Artist Leaderboard page background to be light blue instead of the current dark/coffee-toned background.",
+      "featureId": "feature-update-the-sample-artist-leaderboard-data-so-that-the-first-leaderboard-entry-rank-1-has-the-artist-name-atif-aslam-and-the-second-leaderboard-entry-rank-2-has-the-artist-name-arijit-singh",
+      "featureTitle": "Update the sample artist leaderboard data so that the first leaderboard entry (rank 1) has the artist name \"Atif Aslam\" and the second leaderboard entry (rank 2) has the artist name \"Arijit Singh\".",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/index.css"
+        "frontend/src/data/artistLeaderboardSample.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,27 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-10"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-ensure-the-artist-leaderboard-page-remains-readable-and-visually-consistent-after-switching-the-background-to-light-blue-including-text-colors-card-contrast-and-the-mandala-paper-texture-overlay-layers",
-      "featureTitle": "Ensure the Artist Leaderboard page remains readable and visually consistent after switching the background to light blue (including text colors, card contrast, and the mandala/paper texture overlay layers).",
-      "files": [
-        "frontend/src/components/leaderboard/LeaderboardHeader.tsx",
-        "frontend/src/index.css",
-        "frontend/src/pages/ArtistLeaderboardPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-11"
+        "REQ-12"
       ],
       "confidence": "high"
     }

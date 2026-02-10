@@ -1,41 +1,24 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-10T21:23:54.266Z",
+  "generatedAt": "2026-02-10T21:27:22.247Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-10",
-        "summary": "Update the Artist Leaderboard page background to be light blue instead of the current dark/coffee-toned background.",
+        "id": "REQ-12",
+        "summary": "Update the sample artist leaderboard data so that the first leaderboard entry (rank 1) has the artist name \"Atif Aslam\" and the second leaderboard entry (rank 2) has the artist name \"Arijit Singh\".",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/src/index.css"
+          "frontend/src/data/artistLeaderboardSample.ts"
         ],
         "matchedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/src/index.css"
-        ]
-      },
-      {
-        "id": "REQ-11",
-        "summary": "Ensure the Artist Leaderboard page remains readable and visually consistent after switching the background to light blue (including text colors, card contrast, and the mandala/paper texture overlay layers).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/index.css",
-          "frontend/src/pages/ArtistLeaderboardPage.tsx",
-          "frontend/src/components/leaderboard/LeaderboardHeader.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/index.css",
-          "frontend/src/pages/ArtistLeaderboardPage.tsx",
-          "frontend/src/components/leaderboard/LeaderboardHeader.tsx"
+          "frontend/src/data/artistLeaderboardSample.ts"
         ]
       }
     ]
@@ -45,10 +28,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/App.tsx",
-    "frontend/src/components/leaderboard/LeaderboardHeader.tsx",
-    "frontend/src/index.css",
-    "frontend/src/pages/ArtistLeaderboardPage.tsx",
+    "frontend/src/data/artistLeaderboardSample.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

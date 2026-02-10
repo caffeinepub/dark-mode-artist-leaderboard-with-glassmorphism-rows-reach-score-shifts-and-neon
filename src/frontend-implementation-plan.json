@@ -1,51 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Artist Leaderboard light-blue background theme update",
+  "title": "Update top two artist names in sample leaderboard data",
   "requirements": [
     {
-      "id": "REQ-10",
-      "summary": "Switch the Artist Leaderboard page background from dark/coffee-toned to a light blue using the existing CSS variable theme approach so body and mandala-bg match.",
+      "id": "REQ-12",
+      "summary": "Update the first two sample leaderboard artist names to Atif Aslam (rank 1) and Arijit Singh (rank 2) without changing any other fields or the Artist data shape.",
       "acceptanceCriteria": [
-        "When viewing the Artist Leaderboard page, the primary page background renders as a light blue color.",
-        "The background color change is applied via the existing theme/CSS variable approach (so it affects the `mandala-bg` container and the `body` background consistently)."
+        "In frontend/src/data/artistLeaderboardSample.ts, the entry with rank: 1 has name: \"Atif Aslam\".",
+        "In frontend/src/data/artistLeaderboardSample.ts, the entry with rank: 2 has name: \"Arijit Singh\" (capitalization exactly as shown).",
+        "The Artist Leaderboard page renders these updated names in the first two rows without changing any other fields (id, rank, avatar URL, reachScore, previousReachScore, isTopTrending) for those entries."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/data/artistLeaderboardSample.ts",
           "operation": "modify",
-          "description": "Stop forcing the app into dark mode via a persistent `dark` class so the updated light theme variables can drive the page background consistently (including the body background)."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Update the existing theme CSS variables (notably `--background`, and any closely coupled surface tokens like `--card`/`--popover`) to a light-blue base so both `body` (bg-background) and `.mandala-bg` (uses `--background`) render with the new light blue background."
-        }
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "summary": "Adjust styling to preserve readability and visual separation on the new light-blue background, keeping overlays subtle and cards/rows contrasted.",
-      "acceptanceCriteria": [
-        "All page text (header, subheader, footer, and leaderboard row content) maintains sufficient contrast against the new light blue background.",
-        "The mandala pattern and paper texture overlays remain subtle and do not reduce readability on the light blue background.",
-        "Glassmorphism cards/rows remain visually separated from the light blue background (no washed-out blending)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Tune contrast-related theme variables (e.g., `--foreground`, `--muted-foreground`, `--border`, `--card`) for the light-blue background, and adjust `.mandala-bg::before` / `.mandala-bg::after` overlay opacity and blending so the mandala and paper textures remain subtle and do not harm readability; keep the approach within the existing CSS variable + utility structure."
-        },
-        {
-          "path": "frontend/src/pages/ArtistLeaderboardPage.tsx",
-          "operation": "modify",
-          "description": "Review and adjust page-level text and border utility classes (e.g., header/footer text colors and divider border opacity) as needed to ensure consistent contrast on the new light-blue background without introducing new routes or altering leaderboard behavior."
-        },
-        {
-          "path": "frontend/src/components/leaderboard/LeaderboardHeader.tsx",
-          "operation": "modify",
-          "description": "Adjust header label styling (including any dark-mode-specific classes that may no longer apply) so column labels remain readable and visually consistent with the new light-blue background."
+          "description": "Update only the `name` field for the objects with `rank: 1` and `rank: 2` to \"Atif Aslam\" and \"Arijit Singh\" respectively, keeping all other fields and the Artist interface structure unchanged, and making no changes to any other entries."
         }
       ]
     }

@@ -7,7 +7,7 @@
   "frontend/src/components/leaderboard/RankShiftIndicator.tsx": "Presentational component that displays green up-arrow for positive shifts, red down-arrow for negative shifts, or neutral indicator for no change with semantically clear colors.",
   "frontend/src/components/leaderboard/HypeBadge.tsx": "Saffron-accented badge component with flame icon and subtle gradient styling to highlight top-trending artists in the coffee minimal palette.",
   "frontend/src/types/leaderboard.ts": "TypeScript interface definitions for Artist data structure used across leaderboard components.",
-  "frontend/src/data/artistLeaderboardSample.ts": "Sample artist data with 10 entries including rank, name, avatar, reach scores, and trending flags for demonstration.",
+  "frontend/src/data/artistLeaderboardSample.ts": "Sample artist leaderboard data with 10 entries, now featuring Atif Aslam at rank 1 and Arijit Singh at rank 2, with all other fields (avatars, scores, trending flags) unchanged.",
   "frontend/src/index.css": "Global styles with OKLCH light blue color system (hue ~230), adjusted mandala/paper texture overlays for subtlety, and updated glassmorphism utilities with enhanced contrast for light background.",
   "frontend/tailwind.config.js": "Tailwind configuration extended with coffee and saffron color tokens mapped to CSS variables for the Indian-inspired minimal aesthetic."
 }
