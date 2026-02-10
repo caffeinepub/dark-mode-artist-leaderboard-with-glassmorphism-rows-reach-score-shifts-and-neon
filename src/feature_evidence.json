@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-an-american-flag-indicator-for-the-top-10-artists-on-the-artist-leaderboard-displayed-inline-with-each-artist-s-name-area-in-both-mobile-and-desktop-row-layouts-without-changing-existing-rank-avatar-reach-score-trend-and-hype-indicator-behavior",
-      "featureTitle": "Add an American flag indicator for the top 10 artists on the Artist Leaderboard, displayed inline with each artist’s name area in both mobile and desktop row layouts (without changing existing rank, avatar, Reach Score, Trend, and Hype indicator behavior).",
+      "featureId": "feature-remove-the-profile-picture-avatar-icon-from-each-artist-leaderboard-row-in-both-mobile-and-desktop-layouts-without-changing-existing-rank-artist-name-reach-score-trend-indicator-hype-badge-or-top-10-us-flag-behavior",
+      "featureTitle": "Remove the profile picture/avatar icon from each Artist Leaderboard row in both mobile and desktop layouts, without changing existing rank, artist name, Reach Score, trend indicator, Hype badge, or top-10 US flag behavior.",
       "files": [
         "frontend/src/components/leaderboard/ArtistRow.tsx"
       ],
@@ -15,15 +15,16 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-13"
+        "REQ-15"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-implement-the-american-flag-indicator-using-a-non-photo-asset-flat-icon-svg-illustration-served-as-a-static-frontend-asset-not-fetched-as-a-photo-and-not-routed-through-the-backend",
-      "featureTitle": "Implement the American flag indicator using a non-photo asset (flat icon/SVG/illustration) served as a static frontend asset (not fetched as a photo and not routed through the backend).",
+      "featureId": "feature-sharpen-the-leaderboard-row-card-boxes-by-reducing-corner-rounding-and-making-edges-look-crisper-while-keeping-the-current-light-blue-background-theme-and-overall-readability",
+      "featureTitle": "Sharpen the leaderboard row/card boxes by reducing corner rounding and making edges look crisper, while keeping the current light-blue background theme and overall readability.",
       "files": [
-        "frontend/src/components/leaderboard/ArtistRow.tsx"
+        "frontend/src/components/leaderboard/ArtistRow.tsx",
+        "frontend/src/index.css"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -33,7 +34,26 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-14"
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-subtle-music-themed-and-business-themed-aesthetic-elements-as-decorative-right-corner-accents-in-the-artist-leaderboard-ui-implemented-using-generated-static-image-assets-and-styled-to-match-the-existing-light-blue-coffee-saffron-copper-palette",
+      "featureTitle": "Add subtle music-themed and business-themed aesthetic elements as decorative right-corner accents in the Artist Leaderboard UI, implemented using generated static image assets and styled to match the existing light-blue + coffee/saffron/copper palette.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/src/pages/ArtistLeaderboardPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
       ],
       "confidence": "high"
     }

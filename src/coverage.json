@@ -1,18 +1,18 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-10T21:35:10.158Z",
+  "generatedAt": "2026-02-10T21:40:47.196Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
-        "id": "REQ-13",
-        "summary": "Add an American flag indicator for the top 10 artists on the Artist Leaderboard, displayed inline with each artist’s name area in both mobile and desktop row layouts (without changing existing rank, avatar, Reach Score, Trend, and Hype indicator behavior).",
+        "id": "REQ-15",
+        "summary": "Remove the profile picture/avatar icon from each Artist Leaderboard row in both mobile and desktop layouts, without changing existing rank, artist name, Reach Score, trend indicator, Hype badge, or top-10 US flag behavior.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/src/components/leaderboard/ArtistRow.tsx"
@@ -22,16 +22,33 @@
         ]
       },
       {
-        "id": "REQ-14",
-        "summary": "Implement the American flag indicator using a non-photo asset (flat icon/SVG/illustration) served as a static frontend asset (not fetched as a photo and not routed through the backend).",
+        "id": "REQ-16",
+        "summary": "Sharpen the leaderboard row/card boxes by reducing corner rounding and making edges look crisper, while keeping the current light-blue background theme and overall readability.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/us-flag-icon.dim_64x48.png",
-          "frontend/src/components/leaderboard/ArtistRow.tsx"
+          "frontend/src/components/leaderboard/ArtistRow.tsx",
+          "frontend/src/index.css"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/us-flag-icon.dim_64x48.png",
-          "frontend/src/components/leaderboard/ArtistRow.tsx"
+          "frontend/src/components/leaderboard/ArtistRow.tsx",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Add subtle music-themed and business-themed aesthetic elements as decorative right-corner accents in the Artist Leaderboard UI, implemented using generated static image assets and styled to match the existing light-blue + coffee/saffron/copper palette.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/music-corner-ornament.dim_128x128.png",
+          "frontend/public/assets/generated/business-corner-ornament.dim_128x128.png",
+          "frontend/src/pages/ArtistLeaderboardPage.tsx",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/music-corner-ornament.dim_128x128.png",
+          "frontend/public/assets/generated/business-corner-ornament.dim_128x128.png",
+          "frontend/src/pages/ArtistLeaderboardPage.tsx",
+          "frontend/src/index.css"
         ]
       }
     ]
@@ -41,8 +58,11 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/us-flag-icon.dim_64x48.png",
+    "frontend/public/assets/generated/business-corner-ornament.dim_128x128.png",
+    "frontend/public/assets/generated/music-corner-ornament.dim_128x128.png",
     "frontend/src/components/leaderboard/ArtistRow.tsx",
+    "frontend/src/index.css",
+    "frontend/src/pages/ArtistLeaderboardPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

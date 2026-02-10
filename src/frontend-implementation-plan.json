@@ -1,42 +1,75 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "American flag indicator for top 10 artists on Artist Leaderboard",
+  "title": "Leaderboard UI polish: remove avatars, crisper cards, and add corner accent ornaments",
   "requirements": [
     {
-      "id": "REQ-13",
-      "summary": "Show an inline American flag icon next to the artist name for ranks 1–10 in both mobile and desktop ArtistRow layouts without changing existing row behavior.",
+      "id": "REQ-15",
+      "summary": "Remove avatar/profile picture from each Artist Leaderboard row on mobile and desktop while preserving rank, name, Reach Score, trend indicator, Hype badge, and top-10 US flag behavior and alignment.",
       "acceptanceCriteria": [
-        "For artists with rank 1–10, an American flag icon is visible next to (or immediately before) the artist name on both mobile and desktop layouts.",
-        "For artists with rank > 10 (if present in the future), the flag indicator is not shown.",
-        "Existing row content remains intact: rank badge, avatar, artist name, Reach Score, RankShiftIndicator, and HypeBadge behavior all remain present and functional."
+        "On mobile rows, no Avatar/portrait circle is rendered anywhere in the row layout.",
+        "On desktop rows, no Avatar/portrait circle is rendered anywhere in the row layout.",
+        "Artist name, top-10 US flag icon (when applicable), Hype badge (when applicable), Reach Score, and RankShiftIndicator still render and align correctly.",
+        "No broken layout/extra spacing remains where the avatar used to be."
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/leaderboard/ArtistRow.tsx",
           "operation": "modify",
-          "description": "Add a rank-based (rank <= 10) inline flag indicator rendered alongside the artist name in both the mobile and desktop name rows, ensuring existing rank/avatar/Reach Score/RankShiftIndicator/HypeBadge structure and behavior remain unchanged; reference the static asset at frontend/public/assets/generated/us-flag-icon.dim_64x48.png and size it for row-level readability."
+          "description": "Remove shadcn Avatar usage (Avatar/AvatarImage/AvatarFallback) from both mobile and desktop row layouts; tighten the row flex/grid spacing so name/flag/Hype badge align correctly without leftover avatar gap, and keep existing top-10 US flag, Hype badge, Reach Score, and RankShiftIndicator rendering/placement intact. Verify the component's usage instructions before implementing."
         }
       ]
     },
     {
-      "id": "REQ-14",
-      "summary": "Implement the American flag indicator as a generated non-photo static frontend asset served locally from the public generated assets folder.",
+      "id": "REQ-16",
+      "summary": "Make leaderboard row/card boxes look crisper by reducing corner rounding consistently across mobile and desktop while keeping the current light-blue theme and readable hover/focus states.",
       "acceptanceCriteria": [
-        "The American flag shown for ranks 1–10 uses a generated static image placed under frontend/public/assets/generated and referenced by a stable local path (no remote/photo URLs).",
-        "The flag asset renders crisply at small sizes (row-level icon) and remains readable on the existing light-blue mandala background.",
-        "No new photo-based images are introduced for the flag indicator."
+        "Leaderboard row/cards have visibly less-rounded corners than before (crisper edges).",
+        "Hover/focus states still look consistent with the current theme and do not reduce text contrast.",
+        "The change applies consistently across mobile and desktop row/cards and any leaderboard container cards that use the same styling."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/us-flag-icon.dim_64x48.png",
-          "operation": "create",
-          "description": "Add the generated flat (non-photo) American flag icon asset at this exact path for local static serving and crisp small-size rendering."
-        },
-        {
           "path": "frontend/src/components/leaderboard/ArtistRow.tsx",
           "operation": "modify",
-          "description": "Ensure the flag indicator uses the local generated asset (frontend/public/assets/generated/us-flag-icon.dim_64x48.png) with appropriate dimensions/alt text and no remote/photo URLs, maintaining clarity against the mandala background."
+          "description": "Reduce border-radius on the outer row/card container and its rank badge block(s) (e.g., switch from larger rounding to smaller rounding) and ensure hover styling remains consistent with the existing glassmorphism + light-blue theme. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "If needed for consistency, add/adjust a leaderboard-specific utility/class for crisper card rounding (without changing shadcn UI sources under frontend/src/components/ui and without altering global radius tokens in a way that affects unrelated components). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Add subtle music-themed and business-themed decorative right-corner accents to the Artist Leaderboard UI using generated static image assets that match the light-blue + coffee/saffron/copper palette.",
+      "acceptanceCriteria": [
+        "A music-themed corner accent is visible in a right-side corner placement (e.g., top-right) of the leaderboard UI and does not overlap text/content.",
+        "A business-themed corner accent is visible in a right-side corner placement (e.g., bottom-right or another right-corner location) of the leaderboard UI and does not overlap text/content.",
+        "Corner accents remain subtle (low visual dominance), preserve readability, and scale appropriately on mobile and desktop.",
+        "All new decorative images are served from static frontend assets (not fetched from external URLs and not routed through the backend)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/music-corner-ornament.dim_128x128.png",
+          "operation": "create",
+          "description": "Add the generated static image asset at exactly this path for the music-themed corner ornament (served as a static frontend asset). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/public/assets/generated/business-corner-ornament.dim_128x128.png",
+          "operation": "create",
+          "description": "Add the generated static image asset at exactly this path for the business-themed corner ornament (served as a static frontend asset). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ArtistLeaderboardPage.tsx",
+          "operation": "modify",
+          "description": "Wire the two decorative corner accents into the Leaderboard UI container as subtle, non-interactive, right-corner overlays (e.g., top-right music ornament and bottom-right business ornament) positioned so they do not overlap header/rows and remain responsive on mobile/desktop. Use the static assets: frontend/public/assets/generated/music-corner-ornament.dim_128x128.png and frontend/public/assets/generated/business-corner-ornament.dim_128x128.png. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add minimal styling helpers (e.g., opacity, positioning constraints, pointer-events, and responsive sizing) for the corner accent images so they stay subtle, preserve readability, and avoid overlapping leaderboard content. Verify the component's usage instructions before implementing."
         }
       ]
     }

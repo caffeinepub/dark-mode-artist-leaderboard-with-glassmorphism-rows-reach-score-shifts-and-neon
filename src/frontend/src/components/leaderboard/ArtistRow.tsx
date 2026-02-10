@@ -1,4 +1,3 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { RankShiftIndicator } from './RankShiftIndicator';
 import { HypeBadge } from './HypeBadge';
 import type { Artist } from '@/types/leaderboard';
@@ -12,24 +11,14 @@ export function ArtistRow({ artist }: ArtistRowProps) {
   const isTop10 = artist.rank <= 10;
 
   return (
-    <div className="group relative glassmorphism-card rounded-lg p-4 md:p-6 transition-all duration-300 hover:scale-[1.01] hover:shadow-coffee">
+    <div className="group relative glassmorphism-card rounded-sm p-4 md:p-6 transition-all duration-300 hover:scale-[1.01] hover:shadow-coffee">
       {/* Mobile Layout */}
       <div className="md:hidden space-y-3">
         <div className="flex items-center gap-4">
-          <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-coffee-medium/20 to-copper/20 flex items-center justify-center border border-coffee-medium/30">
+          <div className="flex-shrink-0 w-12 h-12 rounded-sm bg-gradient-to-br from-coffee-medium/20 to-copper/20 flex items-center justify-center border border-coffee-medium/30">
             <span className="text-2xl font-bold text-copper">#{artist.rank}</span>
           </div>
-          <div className="flex items-center gap-3 flex-1 min-w-0">
-            <Avatar className="h-12 w-12 border-2 border-copper/40">
-              <AvatarImage src={artist.avatar} alt={artist.name} />
-              <AvatarFallback className="bg-gradient-to-br from-coffee-light/30 to-saffron/20 text-foreground font-semibold">
-                {artist.name
-                  .split(' ')
-                  .map((n) => n[0])
-                  .join('')
-                  .toUpperCase()}
-              </AvatarFallback>
-            </Avatar>
+          <div className="flex items-center gap-2 flex-1 min-w-0">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
                 {isTop10 && (
@@ -56,21 +45,11 @@ export function ArtistRow({ artist }: ArtistRowProps) {
 
       {/* Desktop Layout */}
       <div className="hidden md:grid grid-cols-[80px_1fr_140px_120px] gap-4 items-center">
-        <div className="flex-shrink-0 w-16 h-16 rounded-lg bg-gradient-to-br from-coffee-medium/20 to-copper/20 flex items-center justify-center border border-coffee-medium/30">
+        <div className="flex-shrink-0 w-16 h-16 rounded-sm bg-gradient-to-br from-coffee-medium/20 to-copper/20 flex items-center justify-center border border-coffee-medium/30">
           <span className="text-3xl font-bold text-copper">#{artist.rank}</span>
         </div>
 
-        <div className="flex items-center gap-4 min-w-0">
-          <Avatar className="h-14 w-14 border-2 border-copper/40">
-            <AvatarImage src={artist.avatar} alt={artist.name} />
-            <AvatarFallback className="bg-gradient-to-br from-coffee-light/30 to-saffron/20 text-foreground font-semibold">
-              {artist.name
-                .split(' ')
-                .map((n) => n[0])
-                .join('')
-                .toUpperCase()}
-            </AvatarFallback>
-          </Avatar>
+        <div className="flex items-center gap-3 min-w-0">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               {isTop10 && (

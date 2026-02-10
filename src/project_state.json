@@ -1,15 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 11,
-  "summary": "Adjust the Artist Leaderboard UI background color away from the current dark/coffee-toned mandala aesthetic to a light blue background, and add American flag indicators for the top 10 artists using non-photo assets.",
+  "projectStateVersion": 13,
+  "summary": "Adjust the Artist Leaderboard UI to remove the profile picture/avatar icon, make the row/card boxes sharper (less rounded, more crisp edges), and add music + business-themed aesthetic elements in the right-side corners, while keeping the light-blue background direction and top-10 American flag indicators.",
   "architectural_notes": [
     "Visual direction change: shift from neon-accent dark glassmorphism to Indian-inspired mandala pattern + coffee minimal minimalism while retaining existing layout/data elements.",
     "Background color direction change requested: switch leaderboard background to light blue (may conflict with existing dark-mode/coffee-toned mandala styling).",
-    "Top-10 artists should display an American flag indicator; implement using non-photo assets (icon/emoji/SVG), not photographic images."
+    "Top-10 artists should display an American flag indicator; implement using non-photo assets (icon/emoji/SVG), not photographic images.",
+    "Leaderboard rows should not display a profile picture/avatar icon.",
+    "Update box/card styling to use sharper corners (less rounded).",
+    "Add music + business themed corner accents on the right side (likely via small non-photo icon/SVG assets)."
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Flat American flag icon, simple vector-like style, no photographic texture (us-flag-icon.dim_64x48.png)",
+  "imageRequirements": "## Required Images\n- Minimal line-art music corner ornament (music-corner-ornament.dim_128x128.png)\n- Minimal line-art business corner ornament (business-corner-ornament.dim_128x128.png)",
   "existing_features": [
     {
       "id": "feature-create-a-dedicated-artist-leaderboard-screen-in-the-react-app-that-renders-a-leaderboard-list-with-glassmorphism-row-styling-on-a-sleek-dark-mode-background",
@@ -122,6 +125,30 @@
         "REQ-14"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-remove-the-profile-picture-avatar-icon-from-each-artist-leaderboard-row-in-both-mobile-and-desktop-layouts-without-changing-existing-rank-artist-name-reach-score-trend-indicator-hype-badge-or-top-10-us-flag-behavior",
+      "title": "Remove the profile picture/avatar icon from each Artist Leaderboard row in both mobile and desktop layouts, without changing existing rank, artist name, Reach Score, trend indicator, Hype badge, or top-10 US flag behavior.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-sharpen-the-leaderboard-row-card-boxes-by-reducing-corner-rounding-and-making-edges-look-crisper-while-keeping-the-current-light-blue-background-theme-and-overall-readability",
+      "title": "Sharpen the leaderboard row/card boxes by reducing corner rounding and making edges look crisper, while keeping the current light-blue background theme and overall readability.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-subtle-music-themed-and-business-themed-aesthetic-elements-as-decorative-right-corner-accents-in-the-artist-leaderboard-ui-implemented-using-generated-static-image-assets-and-styled-to-match-the-existing-light-blue-coffee-saffron-copper-palette",
+      "title": "Add subtle music-themed and business-themed aesthetic elements as decorative right-corner accents in the Artist Leaderboard UI, implemented using generated static image assets and styled to match the existing light-blue + coffee/saffron/copper palette.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -152,6 +179,24 @@
     {
       "id": "AR-5",
       "summary": "Add American flag indicators for the top 10 artists on the leaderboard, using non-photo assets (e.g., icon/emoji/SVG) rather than photos.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Remove the profile picture/avatar icon from each leaderboard row.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Sharpen the leaderboard row/card boxes (crisper edges; reduce rounded corners).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add music- and business-themed aesthetic elements in the right corners of the leaderboard UI.",
       "reqIds": [],
       "status": "pending"
     }

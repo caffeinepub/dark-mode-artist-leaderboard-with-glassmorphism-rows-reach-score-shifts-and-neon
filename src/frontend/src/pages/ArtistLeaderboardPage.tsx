@@ -4,6 +4,22 @@ import { artistLeaderboardData } from '@/data/artistLeaderboardSample';
 export function ArtistLeaderboardPage() {
   return (
     <div className="min-h-screen mandala-bg">
+      {/* Music corner ornament - top right */}
+      <img 
+        src="/assets/generated/music-corner-ornament.dim_128x128.png" 
+        alt="" 
+        className="corner-accent corner-accent-top-right"
+        aria-hidden="true"
+      />
+      
+      {/* Business corner ornament - bottom right */}
+      <img 
+        src="/assets/generated/business-corner-ornament.dim_128x128.png" 
+        alt="" 
+        className="corner-accent corner-accent-bottom-right"
+        aria-hidden="true"
+      />
+
       <div className="relative z-10 container mx-auto px-4 py-8 md:py-12">
         <header className="mb-8 md:mb-12 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-3 text-coffee-dark">

@@ -1,69 +1,80 @@
 {
   "kind": "build_request",
-  "title": "Add American flag indicator for top 10 artists (non-photo assets)",
+  "title": "Remove avatar icons, sharpen leaderboard cards, and add music + business corner aesthetics",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-13",
-      "text": "Add an American flag indicator for the top 10 artists on the Artist Leaderboard, displayed inline with each artist’s name area in both mobile and desktop row layouts (without changing existing rank, avatar, Reach Score, Trend, and Hype indicator behavior).",
+      "id": "REQ-15",
+      "text": "Remove the profile picture/avatar icon from each Artist Leaderboard row in both mobile and desktop layouts, without changing existing rank, artist name, Reach Score, trend indicator, Hype badge, or top-10 US flag behavior.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "include american flags for top 10 artists"
+          "remove the profile picture icon"
         ]
       },
       "acceptanceCriteria": [
-        "For artists with rank 1–10, an American flag icon is visible next to (or immediately before) the artist name on both mobile and desktop layouts.",
-        "For artists with rank > 10 (if present in the future), the flag indicator is not shown.",
-        "Existing row content remains intact: rank badge, avatar, artist name, Reach Score, RankShiftIndicator, and HypeBadge behavior all remain present and functional."
+        "On mobile rows, no Avatar/portrait circle is rendered anywhere in the row layout.",
+        "On desktop rows, no Avatar/portrait circle is rendered anywhere in the row layout.",
+        "Artist name, top-10 US flag icon (when applicable), Hype badge (when applicable), Reach Score, and RankShiftIndicator still render and align correctly.",
+        "No broken layout/extra spacing remains where the avatar used to be."
       ]
     },
     {
-      "id": "REQ-14",
-      "text": "Implement the American flag indicator using a non-photo asset (flat icon/SVG/illustration) served as a static frontend asset (not fetched as a photo and not routed through the backend).",
+      "id": "REQ-16",
+      "text": "Sharpen the leaderboard row/card boxes by reducing corner rounding and making edges look crisper, while keeping the current light-blue background theme and overall readability.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-6"
+          "msg-4"
         ],
         "quotes": [
-          "do not take photos"
+          "sharpen the boxes"
         ]
       },
       "acceptanceCriteria": [
-        "The American flag shown for ranks 1–10 uses a generated static image placed under frontend/public/assets/generated and referenced by a stable local path (no remote/photo URLs).",
-        "The flag asset renders crisply at small sizes (row-level icon) and remains readable on the existing light-blue mandala background.",
-        "No new photo-based images are introduced for the flag indicator."
+        "Leaderboard row/cards have visibly less-rounded corners than before (crisper edges).",
+        "Hover/focus states still look consistent with the current theme and do not reduce text contrast.",
+        "The change applies consistently across mobile and desktop row/cards and any leaderboard container cards that use the same styling."
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Add subtle music-themed and business-themed aesthetic elements as decorative right-corner accents in the Artist Leaderboard UI, implemented using generated static image assets and styled to match the existing light-blue + coffee/saffron/copper palette.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "include music and business aesthetics in the right corners"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A music-themed corner accent is visible in a right-side corner placement (e.g., top-right) of the leaderboard UI and does not overlap text/content.",
+        "A business-themed corner accent is visible in a right-side corner placement (e.g., bottom-right or another right-corner location) of the leaderboard UI and does not overlap text/content.",
+        "Corner accents remain subtle (low visual dominance), preserve readability, and scale appropriately on mobile and desktop.",
+        "All new decorative images are served from static frontend assets (not fetched from external URLs and not routed through the backend)."
       ]
     }
   ],
   "constraints": [
-    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
-    "Backend must remain a single Motoko actor (no new backend services).",
-    "Do not introduce photo-based assets for the American flag indicator; use a flat/icon-style graphic instead."
+    "Do not modify files under frontend/src/components/ui (Shadcn UI sources are read-only).",
+    "Do not change any Internet Identity hooks or actor hooks under the immutable paths listed in SYSTEM_CONTEXT.",
+    "Keep the existing top-10 American flag indicator behavior intact."
   ],
   "nonGoals": [
-    "Adding country flags for ranks outside the top 10.",
-    "Changing the leaderboard theme, layout structure, or existing sample artist names/scores beyond what is required to display the flag indicator.",
-    "Backend persistence or API changes for storing country metadata."
+    "Adding or changing backend logic (no Motoko changes required).",
+    "Changing leaderboard data ranking logic or introducing new leaderboard fields.",
+    "Replacing the existing mandala/paper texture background system."
   ],
   "imageRequirements": {
     "required": [
-      "Flat American flag icon, simple vector-like style, no photographic texture (us-flag-icon.dim_64x48.png)"
+      "Minimal line-art music corner ornament (music-corner-ornament.dim_128x128.png)",
+      "Minimal line-art business corner ornament (business-corner-ornament.dim_128x128.png)"
     ],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }
