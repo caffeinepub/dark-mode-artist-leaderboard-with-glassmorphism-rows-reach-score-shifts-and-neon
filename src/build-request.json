@@ -1,37 +1,59 @@
 {
   "kind": "build_request",
-  "title": "Update first two leaderboard artist names",
+  "title": "Add American flag indicator for top 10 artists (non-photo assets)",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-12",
-      "text": "Update the sample artist leaderboard data so that the first leaderboard entry (rank 1) has the artist name \"Atif Aslam\" and the second leaderboard entry (rank 2) has the artist name \"Arijit Singh\".",
+      "id": "REQ-13",
+      "text": "Add an American flag indicator for the top 10 artists on the Artist Leaderboard, displayed inline with each artist’s name area in both mobile and desktop row layouts (without changing existing rank, avatar, Reach Score, Trend, and Hype indicator behavior).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "msg-6"
         ],
         "quotes": [
-          "change the names to Atif Aslam in the first one , Arijit singh in the second"
+          "include american flags for top 10 artists"
         ]
       },
       "acceptanceCriteria": [
-        "In frontend/src/data/artistLeaderboardSample.ts, the entry with rank: 1 has name: \"Atif Aslam\".",
-        "In frontend/src/data/artistLeaderboardSample.ts, the entry with rank: 2 has name: \"Arijit Singh\" (capitalization exactly as shown).",
-        "The Artist Leaderboard page renders these updated names in the first two rows without changing any other fields (id, rank, avatar URL, reachScore, previousReachScore, isTopTrending) for those entries."
+        "For artists with rank 1–10, an American flag icon is visible next to (or immediately before) the artist name on both mobile and desktop layouts.",
+        "For artists with rank > 10 (if present in the future), the flag indicator is not shown.",
+        "Existing row content remains intact: rank badge, avatar, artist name, Reach Score, RankShiftIndicator, and HypeBadge behavior all remain present and functional."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Implement the American flag indicator using a non-photo asset (flat icon/SVG/illustration) served as a static frontend asset (not fetched as a photo and not routed through the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "do not take photos"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The American flag shown for ranks 1–10 uses a generated static image placed under frontend/public/assets/generated and referenced by a stable local path (no remote/photo URLs).",
+        "The flag asset renders crisply at small sizes (row-level icon) and remains readable on the existing light-blue mandala background.",
+        "No new photo-based images are introduced for the flag indicator."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/components/ui or any paths listed in frontend.immutablePaths.",
-    "Keep the existing leaderboard data structure (Artist interface fields) unchanged."
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Backend must remain a single Motoko actor (no new backend services).",
+    "Do not introduce photo-based assets for the American flag indicator; use a flat/icon-style graphic instead."
   ],
   "nonGoals": [
-    "Do not change the leaderboard layout, styling, theme, sorting, or any other artist entries beyond the first two names.",
-    "Do not add backend storage or persistence for leaderboard data."
+    "Adding country flags for ranks outside the top 10.",
+    "Changing the leaderboard theme, layout structure, or existing sample artist names/scores beyond what is required to display the flag indicator.",
+    "Backend persistence or API changes for storing country metadata."
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Flat American flag icon, simple vector-like style, no photographic texture (us-flag-icon.dim_64x48.png)"
+    ],
     "edits": []
   },
   "userProfileUpdate": {

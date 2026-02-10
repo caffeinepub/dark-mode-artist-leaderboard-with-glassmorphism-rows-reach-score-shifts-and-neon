@@ -1,23 +1,40 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-10T21:27:22.244Z",
-  "summary": "REQ-12 appears implemented: in frontend/src/data/artistLeaderboardSample.ts, rank 1 name is \"Atif Aslam\" and rank 2 name is \"Arijit Singh\"; other fields shown for those entries (id, avatar, reachScore, previousReachScore, isTopTrending) appear unchanged in the provided snippet. However, there are unrelated documentation/state summary edits describing broader UI/theme changes that were not requested.",
-  "missing_requirements": [],
-  "hallucinated_features": [
+  "generatedAt": "2026-02-10T21:35:10.156Z",
+  "summary": "REQ-13 appears implemented by conditionally rendering a US flag icon for ranks <= 10 in both mobile and desktop layouts of ArtistRow. REQ-14 is only partially addressed because the code references a static asset path, but the required generated flag image file is not shown as added in the diff summary. Additionally, the diff includes references to unrequested theme/background and sample data changes in metadata/summary files.",
+  "missing_requirements": [
     {
-      "description": "Documentation-style updates describing broad UI/theme changes (light blue background, mandala overlays, typography/styling changes, Tailwind token changes) beyond updating the first two artist names.",
-      "reason": "BuildRequest non-goals explicitly forbid changing layout/styling/theme and other areas beyond the first two names; the diff includes updated summary text asserting these kinds of changes.",
+      "id": "REQ-14",
+      "requirement": "Use a generated static, non-photo American flag asset placed under frontend/public/assets/generated and referenced by a stable local path.",
+      "reason": "ArtistRow references the asset path \"/assets/generated/us-flag-icon.dim_64x48.png\", but the diff summary shows no new files added (and specifically no asset added under frontend/public/assets/generated), so the required image is not evidenced as present.",
       "evidence": [
-        "frontend-file-summaries.txt",
-        "project_state.json"
+        "frontend/src/components/leaderboard/ArtistRow.tsx (references /assets/generated/us-flag-icon.dim_64x48.png)",
+        "File diff summary: Added files = none"
       ]
     }
   ],
-  "confidence": 0.82,
+  "hallucinated_features": [
+    {
+      "description": "Changing the leaderboard/app visual theme/background (e.g., to a light blue mandala background) beyond what is required to display the flag indicator.",
+      "reason": "The BuildRequest non-goals explicitly disallow changing the leaderboard theme/layout; the diff metadata files describe theme/background modifications not requested by REQ-13/REQ-14.",
+      "evidence": [
+        "project_state.json (summary mentions adjusting UI background to light blue)",
+        "frontend-file-summaries.txt (describes light blue mandala background and styling adjustments in multiple files)"
+      ]
+    },
+    {
+      "description": "Changing sample artist names/order (e.g., Atif Aslam rank 1, Arijit Singh rank 2).",
+      "reason": "The BuildRequest non-goals disallow changing existing sample artist names/scores beyond what is required to display the flag indicator; the diff metadata describes sample data changes.",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/src/data/artistLeaderboardSample.ts described as changed with new top ranks/names)"
+      ]
+    }
+  ],
+  "confidence": 0.71,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/data/artistLeaderboardSample.ts",
+    "frontend/src/components/leaderboard/ArtistRow.tsx",
     "project_state.json"
   ]
 }

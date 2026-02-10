@@ -1,24 +1,37 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-10T21:27:22.247Z",
+  "generatedAt": "2026-02-10T21:35:10.158Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-12",
-        "summary": "Update the sample artist leaderboard data so that the first leaderboard entry (rank 1) has the artist name \"Atif Aslam\" and the second leaderboard entry (rank 2) has the artist name \"Arijit Singh\".",
+        "id": "REQ-13",
+        "summary": "Add an American flag indicator for the top 10 artists on the Artist Leaderboard, displayed inline with each artist’s name area in both mobile and desktop row layouts (without changing existing rank, avatar, Reach Score, Trend, and Hype indicator behavior).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/data/artistLeaderboardSample.ts"
+          "frontend/src/components/leaderboard/ArtistRow.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/data/artistLeaderboardSample.ts"
+          "frontend/src/components/leaderboard/ArtistRow.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Implement the American flag indicator using a non-photo asset (flat icon/SVG/illustration) served as a static frontend asset (not fetched as a photo and not routed through the backend).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/us-flag-icon.dim_64x48.png",
+          "frontend/src/components/leaderboard/ArtistRow.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/us-flag-icon.dim_64x48.png",
+          "frontend/src/components/leaderboard/ArtistRow.tsx"
         ]
       }
     ]
@@ -28,7 +41,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/data/artistLeaderboardSample.ts",
+    "frontend/public/assets/generated/us-flag-icon.dim_64x48.png",
+    "frontend/src/components/leaderboard/ArtistRow.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

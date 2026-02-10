@@ -1,21 +1,42 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update top two artist names in sample leaderboard data",
+  "title": "American flag indicator for top 10 artists on Artist Leaderboard",
   "requirements": [
     {
-      "id": "REQ-12",
-      "summary": "Update the first two sample leaderboard artist names to Atif Aslam (rank 1) and Arijit Singh (rank 2) without changing any other fields or the Artist data shape.",
+      "id": "REQ-13",
+      "summary": "Show an inline American flag icon next to the artist name for ranks 1–10 in both mobile and desktop ArtistRow layouts without changing existing row behavior.",
       "acceptanceCriteria": [
-        "In frontend/src/data/artistLeaderboardSample.ts, the entry with rank: 1 has name: \"Atif Aslam\".",
-        "In frontend/src/data/artistLeaderboardSample.ts, the entry with rank: 2 has name: \"Arijit Singh\" (capitalization exactly as shown).",
-        "The Artist Leaderboard page renders these updated names in the first two rows without changing any other fields (id, rank, avatar URL, reachScore, previousReachScore, isTopTrending) for those entries."
+        "For artists with rank 1–10, an American flag icon is visible next to (or immediately before) the artist name on both mobile and desktop layouts.",
+        "For artists with rank > 10 (if present in the future), the flag indicator is not shown.",
+        "Existing row content remains intact: rank badge, avatar, artist name, Reach Score, RankShiftIndicator, and HypeBadge behavior all remain present and functional."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/data/artistLeaderboardSample.ts",
+          "path": "frontend/src/components/leaderboard/ArtistRow.tsx",
           "operation": "modify",
-          "description": "Update only the `name` field for the objects with `rank: 1` and `rank: 2` to \"Atif Aslam\" and \"Arijit Singh\" respectively, keeping all other fields and the Artist interface structure unchanged, and making no changes to any other entries."
+          "description": "Add a rank-based (rank <= 10) inline flag indicator rendered alongside the artist name in both the mobile and desktop name rows, ensuring existing rank/avatar/Reach Score/RankShiftIndicator/HypeBadge structure and behavior remain unchanged; reference the static asset at frontend/public/assets/generated/us-flag-icon.dim_64x48.png and size it for row-level readability."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Implement the American flag indicator as a generated non-photo static frontend asset served locally from the public generated assets folder.",
+      "acceptanceCriteria": [
+        "The American flag shown for ranks 1–10 uses a generated static image placed under frontend/public/assets/generated and referenced by a stable local path (no remote/photo URLs).",
+        "The flag asset renders crisply at small sizes (row-level icon) and remains readable on the existing light-blue mandala background.",
+        "No new photo-based images are introduced for the flag indicator."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/us-flag-icon.dim_64x48.png",
+          "operation": "create",
+          "description": "Add the generated flat (non-photo) American flag icon asset at this exact path for local static serving and crisp small-size rendering."
+        },
+        {
+          "path": "frontend/src/components/leaderboard/ArtistRow.tsx",
+          "operation": "modify",
+          "description": "Ensure the flag indicator uses the local generated asset (frontend/public/assets/generated/us-flag-icon.dim_64x48.png) with appropriate dimensions/alt text and no remote/photo URLs, maintaining clarity against the mandala background."
         }
       ]
     }

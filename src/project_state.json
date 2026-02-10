@@ -1,13 +1,15 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 9,
-  "summary": "Adjust the Artist Leaderboard UI background color away from the current dark/coffee-toned mandala aesthetic to a light blue background.",
+  "projectStateVersion": 11,
+  "summary": "Adjust the Artist Leaderboard UI background color away from the current dark/coffee-toned mandala aesthetic to a light blue background, and add American flag indicators for the top 10 artists using non-photo assets.",
   "architectural_notes": [
     "Visual direction change: shift from neon-accent dark glassmorphism to Indian-inspired mandala pattern + coffee minimal minimalism while retaining existing layout/data elements.",
-    "Background color direction change requested: switch leaderboard background to light blue (may conflict with existing dark-mode/coffee-toned mandala styling)."
+    "Background color direction change requested: switch leaderboard background to light blue (may conflict with existing dark-mode/coffee-toned mandala styling).",
+    "Top-10 artists should display an American flag indicator; implement using non-photo assets (icon/emoji/SVG), not photographic images."
   ],
   "known_issues": [],
   "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Flat American flag icon, simple vector-like style, no photographic texture (us-flag-icon.dim_64x48.png)",
   "existing_features": [
     {
       "id": "feature-create-a-dedicated-artist-leaderboard-screen-in-the-react-app-that-renders-a-leaderboard-list-with-glassmorphism-row-styling-on-a-sleek-dark-mode-background",
@@ -104,6 +106,22 @@
         "REQ-12"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-an-american-flag-indicator-for-the-top-10-artists-on-the-artist-leaderboard-displayed-inline-with-each-artist-s-name-area-in-both-mobile-and-desktop-row-layouts-without-changing-existing-rank-avatar-reach-score-trend-and-hype-indicator-behavior",
+      "title": "Add an American flag indicator for the top 10 artists on the Artist Leaderboard, displayed inline with each artist’s name area in both mobile and desktop row layouts (without changing existing rank, avatar, Reach Score, Trend, and Hype indicator behavior).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-american-flag-indicator-using-a-non-photo-asset-flat-icon-svg-illustration-served-as-a-static-frontend-asset-not-fetched-as-a-photo-and-not-routed-through-the-backend",
+      "title": "Implement the American flag indicator using a non-photo asset (flat icon/SVG/illustration) served as a static frontend asset (not fetched as a photo and not routed through the backend).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -128,6 +146,12 @@
     {
       "id": "AR-4",
       "summary": "Update the first two leaderboard entries to use the artist names \"Atif Aslam\" (1st) and \"Arijit Singh\" (2nd).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add American flag indicators for the top 10 artists on the leaderboard, using non-photo assets (e.g., icon/emoji/SVG) rather than photos.",
       "reqIds": [],
       "status": "pending"
     }

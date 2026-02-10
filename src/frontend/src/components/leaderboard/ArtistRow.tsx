@@ -9,6 +9,7 @@ interface ArtistRowProps {
 
 export function ArtistRow({ artist }: ArtistRowProps) {
   const shift = artist.reachScore - artist.previousReachScore;
+  const isTop10 = artist.rank <= 10;
 
   return (
     <div className="group relative glassmorphism-card rounded-lg p-4 md:p-6 transition-all duration-300 hover:scale-[1.01] hover:shadow-coffee">
@@ -31,6 +32,13 @@ export function ArtistRow({ artist }: ArtistRowProps) {
             </Avatar>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
+                {isTop10 && (
+                  <img 
+                    src="/assets/generated/us-flag-icon.dim_64x48.png" 
+                    alt="USA" 
+                    className="w-5 h-4 object-contain flex-shrink-0"
+                  />
+                )}
                 <h3 className="font-semibold text-foreground truncate">{artist.name}</h3>
                 {artist.isTopTrending && <HypeBadge />}
               </div>
@@ -65,6 +73,13 @@ export function ArtistRow({ artist }: ArtistRowProps) {
           </Avatar>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
+              {isTop10 && (
+                <img 
+                  src="/assets/generated/us-flag-icon.dim_64x48.png" 
+                  alt="USA" 
+                  className="w-6 h-[18px] object-contain flex-shrink-0"
+                />
+              )}
               <h3 className="font-semibold text-lg text-foreground truncate">{artist.name}</h3>
               {artist.isTopTrending && <HypeBadge />}
             </div>

@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-sample-artist-leaderboard-data-so-that-the-first-leaderboard-entry-rank-1-has-the-artist-name-atif-aslam-and-the-second-leaderboard-entry-rank-2-has-the-artist-name-arijit-singh",
-      "featureTitle": "Update the sample artist leaderboard data so that the first leaderboard entry (rank 1) has the artist name \"Atif Aslam\" and the second leaderboard entry (rank 2) has the artist name \"Arijit Singh\".",
+      "featureId": "feature-add-an-american-flag-indicator-for-the-top-10-artists-on-the-artist-leaderboard-displayed-inline-with-each-artist-s-name-area-in-both-mobile-and-desktop-row-layouts-without-changing-existing-rank-avatar-reach-score-trend-and-hype-indicator-behavior",
+      "featureTitle": "Add an American flag indicator for the top 10 artists on the Artist Leaderboard, displayed inline with each artist’s name area in both mobile and desktop row layouts (without changing existing rank, avatar, Reach Score, Trend, and Hype indicator behavior).",
       "files": [
-        "frontend/src/data/artistLeaderboardSample.ts"
+        "frontend/src/components/leaderboard/ArtistRow.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,7 +15,25 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-12"
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-american-flag-indicator-using-a-non-photo-asset-flat-icon-svg-illustration-served-as-a-static-frontend-asset-not-fetched-as-a-photo-and-not-routed-through-the-backend",
+      "featureTitle": "Implement the American flag indicator using a non-photo asset (flat icon/SVG/illustration) served as a static frontend asset (not fetched as a photo and not routed through the backend).",
+      "files": [
+        "frontend/src/components/leaderboard/ArtistRow.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
       ],
       "confidence": "high"
     }
